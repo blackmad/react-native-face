@@ -5,6 +5,8 @@ import * as tf from "@tensorflow/tfjs";
 import "@tensorflow/tfjs-react-native";
 import { WebcamDemo } from './webcam_demo';
 import { RealtimeDemo } from './realtime_demo';
+import { LandmarkDemo } from './landmark_demo';
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -27,7 +29,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Open up App.tsx to start working on your app!</Text>
-        <RealtimeDemo returnToMain={() => {}}/>
+        <LandmarkDemo returnToMain={() => {}}/>
       </View>
     );
   }

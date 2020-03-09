@@ -32,8 +32,9 @@ import * as faceapi from 'face-api.js';
 import * as canvas from 'canvas';
 // patch nodejs environment, we need to provide an implementation of
 // HTMLCanvasElement and HTMLImageElement
-const { Canvas, Image, ImageData } = canvas
-faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
+// const { Canvas, Image, ImageData } = canvas
+// faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
+
 
 interface ScreenProps {
   returnToMain: () => void;
@@ -74,6 +75,9 @@ export class LandmarkDemo extends React.Component<ScreenProps,ScreenState> {
   }
 
   async loadPosenetModel() {
+    await faceapi.nets.ssdMobilenetv1.loadFromUri('http://dump.blackmad.com/face-api-weights/')
+
+
     const model =  await posenet.load({
       architecture: 'MobileNetV1',
       outputStride: 16,
